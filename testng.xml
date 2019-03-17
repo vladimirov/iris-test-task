@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="All Tests">
+        <test name="Chrome UI EmailTest">
+            <parameter name="browser" value="chrome"/>
+            <classes>
+                <class name="SignUpTest"/>
+            </classes>
+        </test>
+</suite>
+

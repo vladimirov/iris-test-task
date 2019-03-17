@@ -1,0 +1,7 @@
+local.properties
+*.log
+*.yaml
+*.pdf
+target/
+chromedriver
+allure-reuslts
