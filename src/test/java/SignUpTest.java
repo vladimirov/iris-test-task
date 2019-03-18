@@ -9,13 +9,13 @@ public class SignUpTest extends TestBase {
     private String email;
 
     @BeforeTest
-    public void generateTempEmail(){
+    public void generateTempEmail() {
         app.tempMailPage().openTempMailPage();
         email = app.tempMailPage().tempMailEmail();
     }
 
     @Test
-    public void successfulRegistration(){
+    public void successfulRegistration() {
         app.signUpPage().openBasePage();
         app.signUpPage().clickOnRegisterButton();
         app.signUpPage().fillNameFields();
@@ -25,12 +25,10 @@ public class SignUpTest extends TestBase {
         app.tempMailPage().openTempMailPage();
         assertTrue(app.tempMailPage().tempMailHasEmail());
         app.tempMailPage().emailLinkClick();
-
         app.signUpPage().fillPasswordAndConfirm();
-
         app.signUpPage().fillEmailField(email);
         app.signUpPage().fillPasswordAndSignIn();
-
+        assertTrue(app.signUpPage().questionnairePopupIsDisplayed());
     }
 
 }

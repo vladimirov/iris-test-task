@@ -15,13 +15,14 @@ public class TempMailPage extends HelperBase {
 
     private By emailMessageLocator = By.id("schranka");
     private By emailLinkLocator = By.linkText("here");
+    private By emailAddressLocator = By.id("email");
 
     public void openTempMailPage() {
         driver.get(tempMailUrl);
     }
 
     public String tempMailEmail(){
-        return getElementText(By.id("email"));
+        return getElementText(emailAddressLocator);
     }
 
     public boolean tempMailHasEmail(){
@@ -31,8 +32,7 @@ public class TempMailPage extends HelperBase {
     public void emailLinkClick(){
         click(emailMessageLocator);
         driver.switchTo().frame(driver.findElement(By.id("iframeMail")));
-        driver.findElement(By.partialLinkText("the.iris.ai")).click();
-//        click(emailLinkLocator);
+        click(emailLinkLocator);
     }
 
 

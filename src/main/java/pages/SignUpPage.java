@@ -23,7 +23,8 @@ public class SignUpPage extends HelperBase {
     private By signUpButtonLocator = By.xpath("//button[@type='submit']");
     private By passwordLocator = By.name("password");
     private By passwordConfirmLocator = By.name("password_confirm");
-    private By submitButtonLocator = By.className("auth-page__submit-btn ai-btn-submit");
+//    private By submitButtonLocator = By.className("auth-page__submit-btn ai-btn-submit");
+    private By submitButtonLocator = By.xpath("//button[@type='submit']");
     private By questionnairePopupLocator = By.className("questionnaire-popup__container");
 
     public void openBasePage() {
@@ -54,11 +55,8 @@ public class SignUpPage extends HelperBase {
     }
 
     public void fillPasswordAndConfirm() {
-
-        driver.navigate().refresh();
-        driver.navigate().refresh();
-        driver.navigate().refresh();
-
+        waitForPageLoaded();
+        switchToNewTab();
         type(passwordLocator, password);
         type(passwordConfirmLocator, password);
         click(submitButtonLocator);
@@ -67,6 +65,10 @@ public class SignUpPage extends HelperBase {
     public void fillPasswordAndSignIn() {
         type(passwordLocator, password);
         click(submitButtonLocator);
+    }
+
+    public boolean questionnairePopupIsDisplayed(){
+        return isElementPresent(questionnairePopupLocator);
     }
 
 }

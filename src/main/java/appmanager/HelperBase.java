@@ -360,6 +360,19 @@ public class HelperBase {
         return driver.getCurrentUrl() + "\n";
     }
 
+    public void switchToNewTab() {
+        String currentTab = driver.getWindowHandle();
+        for (String tab : driver.getWindowHandles()) {
+            if (!tab.equals(currentTab)) {
+                driver.switchTo().window(tab);
+            }
+        }
+    }
+
+    public String bodyText (){
+        return driver.findElement(By.tagName("body")).getText();
+    }
+
 
 }
 
