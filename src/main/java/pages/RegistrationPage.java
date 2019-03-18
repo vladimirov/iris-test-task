@@ -94,6 +94,10 @@ public class RegistrationPage extends HelperBase {
         click(submitButtonLocator);
     }
 
+    public void fillInvalidPassword() {
+        type(passwordLocator, password +1);
+    }
+
     public void login(String email) {
         type(emailLocator, email);
         type(passwordLocator, password);

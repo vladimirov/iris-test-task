@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class UsernameInvalidTest extends TestBase {
+public class LoginTest extends TestBase {
 
     private String email;
 
@@ -37,11 +37,21 @@ public class UsernameInvalidTest extends TestBase {
     }
 
     @Test
-    public void invalidUsernameInput() {
+    public void inputInvalidUsernameValidPassword() {
         app.registrationPage().openSignInPage();
-//        app.registrationPage().fillEmailField(System.currentTimeMillis() + "@email.email");
         app.registrationPage().fillEmailField(email + 1);
         app.registrationPage().fillPasswordAndSignIn();
         assertTrue(app.registrationPage().loginFormShowsErrors());
     }
+
+    @Test
+    public void inputValidUsernameInvalidPasword() {
+        app.registrationPage().openSignInPage();
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().fillInvalidPassword();
+        assertTrue(app.registrationPage().loginFormShowsErrors());
+    }
+
+
+
 }
