@@ -1,3 +1,5 @@
+package e2e;
+
 import appmanager.TestBase;
 import org.testng.annotations.Test;
 
@@ -11,11 +13,14 @@ public class AuthorizationTest extends TestBase {
     public void successfulRegistration() {
         app.tempMailPage().openTempMailPage();
         email = app.tempMailPage().tempMailEmail();
-        app.basePage().openBasePage();
+        app.homePage().openHomePage();
         app.registrationPage().clickOnRegisterButton();
-        app.registrationPage().fillNameFields();
+        app.registrationPage().acceptCookiesButtonClick();
+        app.registrationPage().fillFirstnameField();
+        app.registrationPage().fillLastnameField();
         app.registrationPage().fillEmailField(email);
-        app.registrationPage().acceptTermsAndClickSignUp();
+        app.registrationPage().acceptTermsCheckbox();
+        app.registrationPage().clickSignUpButton();
         assertTrue(app.registrationPage().awesomeTextIsDisplayed());
         app.tempMailPage().openTempMailPage();
         assertTrue(app.tempMailPage().tempMailHasEmail());
@@ -31,26 +36,25 @@ public class AuthorizationTest extends TestBase {
 
     @Test(priority = 2, dependsOnMethods = {"successfulRegistration"})
     public void successfulLoginAndLogout() {
-        app.basePage().openBasePage();
-        app.basePage().clickOnLoginButton();
+        app.homePage().openHomePage();
+        app.homePage().clickOnLoginButton();
         app.registrationPage().login(email);
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
         app.dashboardPage().clickOnLogoutButton();
-        assertTrue(app.basePage().signInButtonIsDisplayed());
+        assertTrue(app.homePage().signInButtonIsDisplayed());
     }
 
     @Test(priority = 3, dependsOnMethods = {"successfulLoginAndLogout"})
     public void resetPasswordAndLogin(){
-        app.basePage().openBasePage();
-        app.basePage().clickOnLoginButton();
+        app.homePage().openHomePage();
+        app.homePage().clickOnLoginButton();
         app.registrationPage().clickOnForgotPassword();
         app.registrationPage().typeEmailAndClickResetButton(email);
         app.tempMailPage().openTempMailPage();
         app.tempMailPage().resetPasswordLinkClick();
         app.registrationPage().fillNewPasswordAndConfirm();
         app.registrationPage().loginWithNewPassword(email);
-        app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
     }
 

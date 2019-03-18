@@ -16,7 +16,7 @@ public class ApplicationManager {
     private RegistrationPage registrationPage;
     private TempMailPage tempMailPage;
     private DashboardPage dashboardPage;
-    private BasePage basePage;
+    private HomePage homePage;
 
 
     public ApplicationManager() {
@@ -32,7 +32,7 @@ public class ApplicationManager {
         registrationPage = new RegistrationPage(driver);
         tempMailPage = new TempMailPage(driver);
         dashboardPage = new DashboardPage(driver);
-        basePage = new BasePage(driver);
+        homePage = new HomePage(driver);
     }
 
     public void stop() {
@@ -51,8 +51,8 @@ public class ApplicationManager {
         return dashboardPage;
     }
 
-    public BasePage basePage() {
-        return basePage;
+    public HomePage homePage() {
+        return homePage;
     }
 
 }

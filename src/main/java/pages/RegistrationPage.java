@@ -4,7 +4,7 @@ import appmanager.HelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static appmanager.ApplicationManager.tempMailUrl;
+import static appmanager.ApplicationManager.baseUrl;
 
 public class RegistrationPage extends HelperBase {
 
@@ -29,14 +29,23 @@ public class RegistrationPage extends HelperBase {
     private By forgotPasswordLocator = By.className("forgot-password");
     private By passwordResetTextLocator = By.className("auth-page__title");
 
+    public void openRegistrationPage() {
+        driver.get(baseUrl + "auth/registration");
+    }
 
     public void clickOnRegisterButton() {
         click(registerButtonLocator);
     }
 
-    public void fillNameFields() {
+    public void acceptCookiesButtonClick() {
         click(acceptCookieButtonLocator);
+    }
+
+    public void fillFirstnameField() {
         type(firstNameLocator, "Firstname");
+    }
+
+    public void fillLastnameField() {
         type(lastNameLocator, "Lastname");
     }
 
@@ -44,7 +53,12 @@ public class RegistrationPage extends HelperBase {
         type(emailLocator, email);
     }
 
-    public void acceptTermsAndClickSignUp() {
+    public void acceptTermsCheckbox() {
+        click(termsAcceptLocator);
+        click(signUpButtonLocator);
+    }
+
+    public void clickSignUpButton() {
         click(termsAcceptLocator);
         click(signUpButtonLocator);
     }
@@ -89,11 +103,11 @@ public class RegistrationPage extends HelperBase {
         click(submitButtonLocator);
     }
 
-    public void clickOnForgotPassword(){
+    public void clickOnForgotPassword() {
         click(forgotPasswordLocator);
     }
 
-    public void typeEmailAndClickResetButton(String email){
+    public void typeEmailAndClickResetButton(String email) {
         type(emailLocator, email);
         click(remindButtonLocator);
     }
@@ -102,4 +116,7 @@ public class RegistrationPage extends HelperBase {
         return textIsDisplayed(passwordResetTextLocator, "Password reset");
     }
 
+    public boolean signUpButtonIsDisabled() {
+        return isClickable(signUpButtonLocator);
+    }
 }

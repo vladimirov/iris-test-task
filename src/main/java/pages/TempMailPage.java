@@ -13,14 +13,14 @@ public class TempMailPage extends HelperBase {
         super(driver);
     }
 
-//    private By emailMessageLocator = By.id("schranka");
     private By emailMessageLocator = By.xpath("//tbody[@id='schranka']/tr[1]");
-    private By emailLinkLocator = By.linkText("here");
-    private By resetPasswordLinkLocator = By.linkText("reset link");
+    private By emailRegistrationLinkLocator = By.linkText("here");
+    private By emailResetLinkLocator = By.linkText("reset link");
     private By emailAddressLocator = By.id("email");
 
 
     public void openTempMailPage() {
+
         driver.get(tempMailUrl);
     }
 
@@ -29,6 +29,7 @@ public class TempMailPage extends HelperBase {
     }
 
     public boolean tempMailHasEmail() {
+        driver.navigate().refresh();
         return isElementPresent(emailMessageLocator);
     }
 
@@ -36,14 +37,15 @@ public class TempMailPage extends HelperBase {
         waitTillElementIsVisible(emailMessageLocator);
         click(emailMessageLocator);
         driver.switchTo().frame(driver.findElement(By.id("iframeMail")));
-        click(emailLinkLocator);
+        click(emailRegistrationLinkLocator);
     }
 
     public void resetPasswordLinkClick() {
+        driver.navigate().refresh();
         waitTillElementIsVisible(emailMessageLocator);
         click(emailMessageLocator);
         driver.switchTo().frame(driver.findElement(By.id("iframeMail")));
-        click(resetPasswordLinkLocator);
+        click(emailResetLinkLocator);
     }
 
 }

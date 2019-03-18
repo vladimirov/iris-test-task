@@ -20,16 +20,9 @@ public class DashboardPage extends HelperBase {
     }
 
     public void clickOnUserInfoButton() {
-        try {
-            waitToBePresent(questionnairePopupLocator);
-            driver.navigate().refresh();
-            click(userInfoLocator);
-            waitToBePresent(personalInfoLocator);
-        } catch (Exception e) {
-            driver.navigate().refresh();
-            click(userInfoLocator);
-            waitToBePresent(personalInfoLocator);
-        }
+        driver.navigate().refresh();
+        click(userInfoLocator);
+        waitToBePresent(personalInfoLocator);
     }
 
     public boolean personalInfoIsDisplayed() {

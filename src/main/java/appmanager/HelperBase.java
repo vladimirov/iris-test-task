@@ -101,7 +101,6 @@ public class HelperBase {
     public void waitTillElementIsClickable(By locator) {
         logger.info("WAITING TILL ELEMENT IS CLICKABLE: " + locator);
         try {
-            logger.info("ELEMENT IS CLICKABLE: " + locator);
             element = wait.until(elementToBeClickable(locator));
         } catch (TimeoutException e) {
             logger.info("ELEMENT IS CLICKABLE: " + locator);
@@ -252,12 +251,6 @@ public class HelperBase {
         return element.getAttribute(attribute);
     }
 
-    public String getElementAttributeValue(By locator) {
-        logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        return element.getAttribute("value");
-    }
-
     public String getElementText(By locator) {
         logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
         element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -373,6 +366,17 @@ public class HelperBase {
         return driver.findElement(By.tagName("body")).getText();
     }
 
-
+    public boolean isClickable(By locator) {
+        logger.info("CHECK IF ELEMENT IS CLICKABLE " + locator);
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 1);
+            element = wait.until(elementToBeClickable(locator));
+            logger.info("ELEMENT IS CLICKABLE: " + locator);
+            return true;
+        } catch (Exception e) {
+            logger.info("ELEMENT IS NOT CLICKABLE: " + locator);
+            return false;
+        }
+    }
 }
 

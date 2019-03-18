@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 
 import static appmanager.ApplicationManager.baseUrl;
 
-public class BasePage extends HelperBase {
+public class HomePage extends HelperBase {
 
-    public BasePage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
     private By signInButtonLocator = By.className("ai-btn");
     private By loginButtonLocator = By.xpath("//*[@ui-sref='auth.login']");
 
-    public void openBasePage() {
+    public void openHomePage() {
         driver.get(baseUrl);
     }
 
