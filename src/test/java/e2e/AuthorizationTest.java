@@ -37,7 +37,8 @@ public class AuthorizationTest extends TestBase {
     @Test(priority = 2, dependsOnMethods = {"successfulRegistration"})
     public void successfulLoginAndLogout() {
         app.homePage().openHomePage();
-        app.homePage().clickOnLoginButton();
+//        app.homePage().clickOnLoginButton();
+        app.homePage().openLoginPageViaSideMenu();
         app.registrationPage().login(email);
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());

@@ -20,7 +20,14 @@ public class DriverFactory {
                 chromeOptions.addArguments("--disable-infobars");
                 chromeOptions.setCapability("webdriver.chrome.driver", true);
                 return new ChromeDriver(chromeOptions);
-
+            case "mobile":
+                System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+                Map<String, String> iphoneEmulation = new HashMap<>();
+                iphoneEmulation.put("deviceName", "iPhone 6/7/8");
+                ChromeOptions iphoneOptions = new ChromeOptions();
+                iphoneOptions.setExperimentalOption("mobileEmulation", iphoneEmulation);
+                iphoneOptions.addArguments("--disable-infobars");
+                return new ChromeDriver(iphoneOptions);
         }
     }
 }
