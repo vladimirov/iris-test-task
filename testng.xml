@@ -4,7 +4,7 @@
         <test name="Chrome UI EmailTest">
             <parameter name="browser" value="chrome"/>
             <classes>
-                <class name="SignUpTest"/>
+                <class name="AuthorizationTest"/>
             </classes>
         </test>
 </suite>

@@ -1,8 +1,7 @@
 package appmanager;
 
 import org.openqa.selenium.WebDriver;
-import pages.SignUpPage;
-import pages.TempMailPage;
+import pages.*;
 
 import java.io.File;
 import java.io.FileReader;
@@ -12,10 +11,12 @@ import java.util.Properties;
 public class ApplicationManager {
     private WebDriver driver;
     private final Properties localProperties;
-    private SignUpPage signUpPage;
-    private TempMailPage tempMailPage;
     public static String baseUrl;
     public static String tempMailUrl;
+    private RegistrationPage registrationPage;
+    private TempMailPage tempMailPage;
+    private DashboardPage dashboardPage;
+    private BasePage basePage;
 
 
     public ApplicationManager() {
@@ -28,20 +29,30 @@ public class ApplicationManager {
         localProperties.load(new FileReader(new File("src/main/resources/local.properties")));
         baseUrl = localProperties.getProperty("web.baseUrl");
         tempMailUrl = localProperties.getProperty("web.tempMailUrl");
-        signUpPage = new SignUpPage(driver);
+        registrationPage = new RegistrationPage(driver);
         tempMailPage = new TempMailPage(driver);
+        dashboardPage = new DashboardPage(driver);
+        basePage = new BasePage(driver);
     }
 
     public void stop() {
         driver.quit();
     }
 
-    public SignUpPage signUpPage() {
-        return signUpPage;
+    public RegistrationPage registrationPage() {
+        return registrationPage;
     }
 
     public TempMailPage tempMailPage() {
         return tempMailPage;
+    }
+
+    public DashboardPage dashboardPage() {
+        return dashboardPage;
+    }
+
+    public BasePage basePage() {
+        return basePage;
     }
 
 }

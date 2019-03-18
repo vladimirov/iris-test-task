@@ -4,15 +4,16 @@ import appmanager.HelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static appmanager.ApplicationManager.baseUrl;
+import static appmanager.ApplicationManager.tempMailUrl;
 
-public class SignUpPage extends HelperBase {
+public class RegistrationPage extends HelperBase {
 
-    public SignUpPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver) {
         super(driver);
     }
 
     private String password = "^(?=.*[a-Z])(?=.*1";
+    private String newPassword = "^(?=.*[a-Z])(?=.*1-new";
 
     private By acceptCookieButtonLocator = By.cssSelector("div.cookies-disclaimer__btn-wrapper");
     private By registerButtonLocator = By.xpath("//div[@class='auth-btn-wrapper']/a[2]");
@@ -21,15 +22,13 @@ public class SignUpPage extends HelperBase {
     private By emailLocator = By.name("email");
     private By termsAcceptLocator = By.xpath("//*[@for='i-accept']");
     private By signUpButtonLocator = By.xpath("//button[@type='submit']");
+    private By remindButtonLocator = By.xpath("//button[@type='submit']");
     private By passwordLocator = By.name("password");
     private By passwordConfirmLocator = By.name("password_confirm");
-//    private By submitButtonLocator = By.className("auth-page__submit-btn ai-btn-submit");
     private By submitButtonLocator = By.xpath("//button[@type='submit']");
-    private By questionnairePopupLocator = By.className("questionnaire-popup__container");
+    private By forgotPasswordLocator = By.className("forgot-password");
+    private By passwordResetTextLocator = By.className("auth-page__title");
 
-    public void openBasePage() {
-        driver.get(baseUrl);
-    }
 
     public void clickOnRegisterButton() {
         click(registerButtonLocator);
@@ -60,6 +59,17 @@ public class SignUpPage extends HelperBase {
         type(passwordLocator, password);
         type(passwordConfirmLocator, password);
         click(submitButtonLocator);
+        driver.get("https://the.iris.ai/auth/login");
+    }
+
+
+    public void fillNewPasswordAndConfirm() {
+        waitForPageLoaded();
+        switchToNewTab();
+        type(passwordLocator, newPassword);
+        type(passwordConfirmLocator, newPassword);
+        click(submitButtonLocator);
+        driver.get("https://the.iris.ai/auth/login");
     }
 
     public void fillPasswordAndSignIn() {
@@ -67,8 +77,29 @@ public class SignUpPage extends HelperBase {
         click(submitButtonLocator);
     }
 
-    public boolean questionnairePopupIsDisplayed(){
-        return isElementPresent(questionnairePopupLocator);
+    public void login(String email) {
+        type(emailLocator, email);
+        type(passwordLocator, password);
+        click(submitButtonLocator);
+    }
+
+    public void loginWithNewPassword(String email) {
+        type(emailLocator, email);
+        type(passwordLocator, newPassword);
+        click(submitButtonLocator);
+    }
+
+    public void clickOnForgotPassword(){
+        click(forgotPasswordLocator);
+    }
+
+    public void typeEmailAndClickResetButton(String email){
+        type(emailLocator, email);
+        click(remindButtonLocator);
+    }
+
+    public boolean passwordResetTextIsDisplayed() {
+        return textIsDisplayed(passwordResetTextLocator, "Password reset");
     }
 
 }
