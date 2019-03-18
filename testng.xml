@@ -5,9 +5,9 @@
             <parameter name="browser" value="chrome"/>
             <classes>
                 <class name="e2e.AuthorizationTest"/>
-                <class name="ui.InvalidEmailTest"/>
-                <class name="ui.TermsCheckboxTest"/>
-                <class name="ui.RequiredFieldsTest"/>
+                <class name="registration.InvalidEmailTest"/>
+                <class name="registration.TermsCheckboxTest"/>
+                <class name="registration.RequiredFieldsTest"/>
             </classes>
         </test>
 </suite>

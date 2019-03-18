@@ -23,6 +23,7 @@ public class RegistrationPage extends HelperBase {
     private By termsAcceptLocator = By.xpath("//*[@for='i-accept']");
     private By signUpButtonLocator = By.xpath("//button[@type='submit']");
     private By remindButtonLocator = By.xpath("//button[@type='submit']");
+    private By loginButtonLocator = By.xpath("//button[@type='submit']");
     private By passwordLocator = By.name("password");
     private By passwordConfirmLocator = By.name("password_confirm");
     private By submitButtonLocator = By.xpath("//button[@type='submit']");
@@ -31,6 +32,10 @@ public class RegistrationPage extends HelperBase {
 
     public void openRegistrationPage() {
         driver.get(baseUrl + "auth/registration");
+    }
+
+    public void openSignInPage() {
+        driver.get(baseUrl + "auth/login");
     }
 
     public void clickOnRegisterButton() {
@@ -55,11 +60,9 @@ public class RegistrationPage extends HelperBase {
 
     public void acceptTermsCheckbox() {
         click(termsAcceptLocator);
-        click(signUpButtonLocator);
     }
 
     public void clickSignUpButton() {
-        click(termsAcceptLocator);
         click(signUpButtonLocator);
     }
 
@@ -119,4 +122,14 @@ public class RegistrationPage extends HelperBase {
     public boolean signUpButtonIsDisabled() {
         return isClickable(signUpButtonLocator);
     }
+
+    public boolean loginFormShowsErrors() {
+        try {
+            elementHasAttribute(loginButtonLocator, "ng-disabled", "form.$invalid");
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
 }

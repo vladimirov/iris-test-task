@@ -1,4 +1,4 @@
-package ui;
+package registration;
 
 import appmanager.TestBase;
 import org.testng.annotations.Test;

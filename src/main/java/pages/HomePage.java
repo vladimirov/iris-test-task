@@ -13,7 +13,7 @@ public class HomePage extends HelperBase {
     }
 
     private By signInButtonLocator = By.className("ai-btn");
-    private By loginButtonLocator = By.xpath("//*[@ui-sref='auth.login']");
+    private By loginButtonLocator = By.xpath("//*[@registration-sref='auth.login']");
 
     public void openHomePage() {
         driver.get(baseUrl);
