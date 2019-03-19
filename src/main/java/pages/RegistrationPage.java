@@ -148,4 +148,8 @@ public class RegistrationPage extends HelperBase {
         }
     }
 
+    public String userAlreadyExistMessageDisplayed(){
+        return driver.findElement(By.tagName("body")).getText();
+    }
+
 }

@@ -52,5 +52,4 @@ public class LoginTest extends TestBase {
         assertTrue(app.registrationPage().loginFormShowsErrors());
     }
 
-
 }

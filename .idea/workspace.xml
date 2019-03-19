@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c760b07a-1445-4191-88ae-d816865fe4f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/TempMailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/TempMailPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/registration/InvalidEmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/registration/InvalidEmailTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/registration/RequiredFieldsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/registration/RequiredFieldsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/signin/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/signin/LoginTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,23 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/registration/RequiredFieldsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+            <state relative-caret-position="417">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,25 +39,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/signin/LoginTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pages/DashboardPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="400">
+              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
+                <element signature="e#1034#1035#0" expanded="true" />
+                <element signature="e#1076#1077#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/registration/InvalidEmailTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-end-line="18" />
+            <state relative-caret-position="400">
+              <caret line="151" column="64" selection-start-line="151" selection-start-column="64" selection-end-line="151" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1499#1500#0" expanded="true" />
+                <element signature="e#1556#1557#0" expanded="true" />
+                <element signature="e#1588#1589#0" expanded="true" />
+                <element signature="e#1631#1632#0" expanded="true" />
+                <element signature="e#1667#1668#0" expanded="true" />
+                <element signature="e#1717#1718#0" expanded="true" />
+                <element signature="e#3235#3236#0" expanded="true" />
+                <element signature="e#3276#3277#0" expanded="true" />
+                <element signature="e#3649#3650#0" expanded="true" />
+                <element signature="e#3693#3694#0" expanded="true" />
+                <element signature="e#4008#4009#0" expanded="true" />
+                <element signature="e#4071#4072#0" expanded="true" />
+                <element signature="e#4118#4119#0" expanded="true" />
+                <element signature="e#4173#4174#0" expanded="true" />
+                <element signature="e#4471#4472#0" expanded="true" />
+                <element signature="e#4542#4543#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -132,16 +148,16 @@
         <option value="$PROJECT_DIR$/src/main/resources/local.properties" />
         <option value="$PROJECT_DIR$/src/main/java/appmanager/ApplicationManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/appmanager/DriverFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java" />
         <option value="$PROJECT_DIR$/testng.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pages/HomePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/signin/LoginTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/pages/TempMailPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/registration/InvalidEmailTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/registration/RequiredFieldsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/signin/LoginTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java" />
       </list>
     </option>
   </component>
@@ -273,7 +289,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553033080443" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553034636814" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../wordpress-test" />
   </component>
@@ -298,7 +314,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTest">
+  <component name="RunManager" selected="TestNG.AuthorizationTest">
     <configuration name="AuthorizationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="iris-test-task" />
       <extension name="coverage">
@@ -386,11 +402,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.AuthorizationTest" />
         <item itemvalue="TestNG.LoginTest" />
         <item itemvalue="TestNG.TermsCheckboxTest" />
         <item itemvalue="TestNG.RequiredFieldsTest" />
         <item itemvalue="TestNG.InvalidEmailTest" />
-        <item itemvalue="TestNG.AuthorizationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -440,31 +456,17 @@
       <option name="project" value="LOCAL" />
       <updated>1552949968335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="scroll method added">
+      <created>1553033140491</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553033140491</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AuthorizationTest - 2019.03.19 at 23h 35m 56s.xml">
-      <configuration name="AuthorizationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 36m 41s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 37m 25s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 37m 40s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 38m 25s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 38m 57s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="InvalidEmailTest - 2019.03.19 at 23h 47m 00s.xml">
-      <configuration name="InvalidEmailTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="RequiredFieldsTest - 2019.03.19 at 23h 47m 43s.xml">
       <configuration name="RequiredFieldsTest" configurationId="TestNG" />
     </history-entry>
@@ -474,9 +476,31 @@
     <history-entry file="LoginTest - 2019.03.19 at 23h 49m 03s.xml">
       <configuration name="LoginTest" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 20m 29s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 21m 46s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 22m 52s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 23m 41s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 25m 04s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 26m 55s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AuthorizationTest - 2019.03.20 at 00h 29m 23s.xml">
+      <configuration name="AuthorizationTest" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -485,7 +509,7 @@
       <window_info id="Image Layers" order="4" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.19667171" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.9516908" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.9516908" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -510,7 +534,8 @@
     <MESSAGE value="added registration test" />
     <MESSAGE value="local properties file added" />
     <MESSAGE value="login test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="login test added" />
+    <MESSAGE value="scroll method added" />
+    <option name="LAST_COMMIT_MESSAGE" value="scroll method added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
@@ -604,28 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pages/HomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pages/DashboardPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pages/TempMailPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -663,20 +666,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/signin/LoginTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/signin/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pages/HomePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state relative-caret-position="400">
+          <caret line="151" column="64" selection-start-line="151" selection-start-column="64" selection-end-line="151" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1499#1500#0" expanded="true" />
@@ -693,31 +723,32 @@
             <element signature="e#4071#4072#0" expanded="true" />
             <element signature="e#4118#4119#0" expanded="true" />
             <element signature="e#4173#4174#0" expanded="true" />
+            <element signature="e#4471#4472#0" expanded="true" />
+            <element signature="e#4542#4543#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/appmanager/HelperBase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pages/DashboardPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
+        <state relative-caret-position="400">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="true" />
+            <element signature="e#1076#1077#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/e2e/AuthorizationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/registration/TermsCheckboxTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        <state relative-caret-position="417">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

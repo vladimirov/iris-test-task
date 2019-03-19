@@ -3,6 +3,7 @@ package e2e;
 import appmanager.TestBase;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class AuthorizationTest extends TestBase {
@@ -46,7 +47,7 @@ public class AuthorizationTest extends TestBase {
     }
 
     @Test(priority = 3, dependsOnMethods = {"successfulLoginAndLogout"})
-    public void resetPasswordAndLogin(){
+    public void resetPasswordAndLogin() {
         app.homePage().openHomePage();
         app.homePage().clickOnLoginButton();
         app.registrationPage().clickOnForgotPassword();
@@ -55,7 +56,23 @@ public class AuthorizationTest extends TestBase {
         app.tempMailPage().resetPasswordLinkClick();
         app.registrationPage().fillNewPasswordAndConfirm();
         app.registrationPage().loginWithNewPassword(email);
+        app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
+        app.dashboardPage().clickOnLogoutButton();
     }
+
+    @Test(priority = 4)
+    public void registerEmailThatAlreadyUsed() {
+        app.registrationPage().openRegistrationPage();
+        app.registrationPage().fillFirstnameField();
+        app.registrationPage().fillLastnameField();
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().acceptTermsCheckbox();
+        app.registrationPage().clickSignUpButton();
+
+        assertEquals(app.registrationPage().userAlreadyExistMessageDisplayed(), "User already exist!");
+
+    }
+
 
 }
