@@ -18,6 +18,7 @@ public class DriverFactory {
                 System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--disable-infobars");
+                chromeOptions.addArguments("--start-maximized");
                 chromeOptions.setCapability("webdriver.chrome.driver", true);
                 return new ChromeDriver(chromeOptions);
             case "mobile":

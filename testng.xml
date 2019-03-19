@@ -1,26 +1,25 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="All Tests">
-    <test name="Chrome UI Tests">
+<suite name="Chrome Desktop">
+    <test name="Authorization Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="e2e.AuthorizationTest"/>
+        </classes>
+    </test>
+    <test name="Registration Form Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
             <class name="registration.InvalidEmailTest"/>
-            <class name="registration.TermsCheckboxTest"/>
             <class name="registration.RequiredFieldsTest"/>
+            <class name="registration.TermsCheckboxTest"/>
+        </classes>
+    </test>
+    <test name="Login Form Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
             <class name="signin.LoginTest"/>
         </classes>
     </test>
-
-    <!--<test name="Chrome Responsive Tests">-->
-        <!--<parameter name="browser" value="mobile"/>-->
-        <!--<classes>-->
-            <!--<class name="e2e.AuthorizationTest"/>-->
-            <!--<class name="registration.InvalidEmailTest"/>-->
-            <!--<class name="registration.TermsCheckboxTest"/>-->
-            <!--<class name="registration.RequiredFieldsTest"/>-->
-            <!--<class name="signin.LoginTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
 </suite>
 

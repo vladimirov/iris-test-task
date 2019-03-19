@@ -4,7 +4,6 @@ import appmanager.TestBase;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends TestBase {
@@ -12,7 +11,7 @@ public class LoginTest extends TestBase {
     private String email;
 
     @BeforeTest
-    public void registerNewUser(){
+    public void registerNewUser() {
         app.tempMailPage().openTempMailPage();
         email = app.tempMailPage().tempMailEmail();
         app.homePage().openHomePage();
@@ -45,13 +44,13 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void inputValidUsernameInvalidPasword() {
+    public void inputValidUsernameInvalidPassword() {
         app.registrationPage().openSignInPage();
         app.registrationPage().fillEmailField(email);
         app.registrationPage().fillInvalidPassword();
+        app.registrationPage().clickLoginButton();
         assertTrue(app.registrationPage().loginFormShowsErrors());
     }
-
 
 
 }

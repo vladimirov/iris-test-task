@@ -20,8 +20,7 @@ public class TempMailPage extends HelperBase {
 
 
     public void openTempMailPage() {
-
-        driver.get(tempMailUrl);
+        open(tempMailUrl);
     }
 
     public String tempMailEmail() {

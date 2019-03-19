@@ -13,24 +13,17 @@ public class HomePage extends HelperBase {
     }
 
     private By signInButtonLocator = By.className("ai-btn");
-    private By loginButtonLocator = By.xpath("//*[@registration-sref='auth.login']");
-    private By menuIconLocator = By.cssSelector("i.menu-icon");
-    private By mainMenuItemLocator = By.cssSelector("a.main-menu__item-link");
+    private By loginButtonLocator = By.xpath("//div[@class='auth-btn-wrapper']/a[1]");
 
     public void openHomePage() {
-        driver.get(baseUrl);
+        open(baseUrl);
     }
 
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() {
         click(loginButtonLocator);
     }
 
-    public void openLoginPageViaSideMenu(){
-        click(menuIconLocator);
-        click(mainMenuItemLocator);
-    }
-
-    public boolean signInButtonIsDisplayed(){
+    public boolean signInButtonIsDisplayed() {
         return isElementPresent(signInButtonLocator);
     }
 

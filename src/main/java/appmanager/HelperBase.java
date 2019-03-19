@@ -3,7 +3,6 @@ package appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,11 +79,6 @@ public class HelperBase {
         }
     }
 
-    public void waitTillElementIsNotVisible(By locator) {
-        logger.info("WAIT TILL ELEMENT IS NOT VISIBLE: " + locator);
-        wait.until(invisibilityOfElementLocated(locator));
-    }
-
     protected void waitForPageLoaded() {
         ExpectedCondition<Boolean> expectation = new
                 ExpectedCondition<Boolean>() {
@@ -98,26 +92,6 @@ public class HelperBase {
             wait.until(expectation);
         } catch (Throwable error) {
             Assert.fail("Timeout waiting for Page Load Request to complete.");
-        }
-    }
-
-    public void waitForPageLoadComplete(WebDriver driver, int specifiedTimeout) {
-        Wait<WebDriver> wait = new WebDriverWait(driver, specifiedTimeout);
-        wait.until(driver1 -> String
-                .valueOf(((JavascriptExecutor) driver1).executeScript("return document.readyState"))
-                .equals("complete"));
-    }
-
-    public boolean isElementVisible(By locator) {
-        logger.info("TRYING TO FOUND ELEMENT: " + locator);
-        try {
-            logger.info("ELEMENT HAS BEEN FOUND: " + locator);
-            element = wait.until(presenceOfElementLocated(locator));
-            logger.info("ELEMENT HAS BEEN FOUND: " + locator);
-            return true;
-        } catch (NoSuchElementException e) {
-            logger.info("CANT FOUND ELEMENT: " + locator);
-            return false;
         }
     }
 
@@ -144,29 +118,10 @@ public class HelperBase {
         return element.getAttribute(attribute).equals(value);
     }
 
-    public boolean elementHasValue(By locator) {
-        logger.info("WAITING TILL ELEMENT " + locator + " HAS VALUE");
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        return element.getText().length() > 0;
-    }
-
-    public String getElementAttribute(By locator, String attribute) {
-        logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        logger.info("GETTING ELEMENT ATTRIBUTE: " + attribute);
-        return element.getAttribute(attribute);
-    }
-
     protected String getElementText(By locator) {
         logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
         element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         return element.getText();
-    }
-
-    public boolean elementIsSelected(By locator) {
-        logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        return element.isSelected();
     }
 
     protected void switchToNewTab() {
@@ -190,5 +145,11 @@ public class HelperBase {
             return false;
         }
     }
+
+    protected void open(String url) {
+        logger.info("OPEN URL: " + url);
+        driver.get(url);
+    }
+
 }
 

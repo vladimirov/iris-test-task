@@ -13,6 +13,7 @@ public class ApplicationManager {
     private final Properties localProperties;
     public static String baseUrl;
     public static String tempMailUrl;
+    public static String signInUrl;
     private RegistrationPage registrationPage;
     private TempMailPage tempMailPage;
     private DashboardPage dashboardPage;
@@ -25,10 +26,10 @@ public class ApplicationManager {
 
     public void init(String browser) throws IOException {
         driver = DriverFactory.initDriver(browser);
-        driver.manage().window().maximize();
         localProperties.load(new FileReader(new File("src/main/resources/local.properties")));
         baseUrl = localProperties.getProperty("web.baseUrl");
         tempMailUrl = localProperties.getProperty("web.tempMailUrl");
+        signInUrl = localProperties.getProperty("web.signInUrl");
         registrationPage = new RegistrationPage(driver);
         tempMailPage = new TempMailPage(driver);
         dashboardPage = new DashboardPage(driver);
