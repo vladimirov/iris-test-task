@@ -13,6 +13,7 @@ public class RequiredFieldsTest extends TestBase {
         app.registrationPage().fillLastnameField();
         app.registrationPage().fillEmailField(System.currentTimeMillis() + "@email.com");
         app.registrationPage().acceptTermsCheckbox();
+        app.registrationPage().scrollToSignUpButton();
         assertFalse(app.registrationPage().signUpButtonIsDisabled());
     }
 
@@ -22,6 +23,7 @@ public class RequiredFieldsTest extends TestBase {
         app.registrationPage().fillFirstnameField();
         app.registrationPage().fillEmailField(System.currentTimeMillis() + "@email.com");
         app.registrationPage().acceptTermsCheckbox();
+        app.registrationPage().scrollToSignUpButton();
         assertFalse(app.registrationPage().signUpButtonIsDisabled());
     }
 
@@ -31,6 +33,7 @@ public class RequiredFieldsTest extends TestBase {
         app.registrationPage().fillFirstnameField();
         app.registrationPage().fillLastnameField();
         app.registrationPage().acceptTermsCheckbox();
+        app.registrationPage().scrollToSignUpButton();
         assertFalse(app.registrationPage().signUpButtonIsDisabled());
     }
 

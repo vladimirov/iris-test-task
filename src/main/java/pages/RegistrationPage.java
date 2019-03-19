@@ -109,13 +109,13 @@ public class RegistrationPage extends HelperBase {
     public void login(String email) {
         type(emailLocator, email);
         type(passwordLocator, password);
-        click(submitButtonLocator);
+        click(loginButtonLocator);
     }
 
     public void loginWithNewPassword(String email) {
         type(emailLocator, email);
         type(passwordLocator, newPassword);
-        click(submitButtonLocator);
+        click(loginButtonLocator);
     }
 
     public void clickOnForgotPassword() {
@@ -129,6 +129,10 @@ public class RegistrationPage extends HelperBase {
 
     public boolean passwordResetTextIsDisplayed() {
         return textIsDisplayed(passwordResetTextLocator, "Password reset");
+    }
+
+    public void scrollToSignUpButton(){
+        scrollTillElementIsVisible(signUpButtonLocator);
     }
 
     public boolean signUpButtonIsDisabled() {

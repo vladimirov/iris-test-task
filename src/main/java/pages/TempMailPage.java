@@ -18,7 +18,6 @@ public class TempMailPage extends HelperBase {
     private By emailResetLinkLocator = By.linkText("reset link");
     private By emailAddressLocator = By.id("email");
 
-
     public void openTempMailPage() {
         open(tempMailUrl);
     }
@@ -41,6 +40,7 @@ public class TempMailPage extends HelperBase {
 
     public void resetPasswordLinkClick() {
         driver.navigate().refresh();
+        driver.findElement(By.linkText("Refresh")).click();
         waitTillElementIsVisible(emailMessageLocator);
         click(emailMessageLocator);
         driver.switchTo().frame(driver.findElement(By.id("iframeMail")));

@@ -124,6 +124,13 @@ public class HelperBase {
         return element.getText();
     }
 
+    protected void scrollTillElementIsVisible(By locator) {
+        logger.info("SCROLL TILL ELEMENT IS VISIBLE: " + locator);
+        element = wait.until(presenceOfElementLocated(locator));
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
     protected void switchToNewTab() {
         String currentTab = driver.getWindowHandle();
         for (String tab : driver.getWindowHandles()) {
