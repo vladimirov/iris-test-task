@@ -64,7 +64,7 @@ public class AuthorizationTest extends TestBase {
     }
 
     @Test(priority = 4, dependsOnMethods = {"resetPassword"})
-    public void loginWithNewPassword() throws InterruptedException {
+    public void loginWithNewPassword() {
         app.registrationPage().openSignInPage();
         app.registrationPage().clickOnEmailField();
         app.registrationPage().fillEmailField(email);
@@ -76,7 +76,17 @@ public class AuthorizationTest extends TestBase {
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5, dependsOnMethods = {"loginWithNewPassword"})
+    public void loginWithOldPassword() {
+        app.registrationPage().openSignInPage();
+        app.registrationPage().clickOnEmailField();
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().fillPasswordField();
+        app.registrationPage().submitTheForm();
+        assertTrue(app.registrationPage().errorIsDisplayed());
+    }
+
+    @Test(priority = 6)
     public void registerEmailThatAlreadyUsed() {
         app.registrationPage().openRegistrationPage();
         app.registrationPage().clickOnEmailField();
@@ -85,7 +95,7 @@ public class AuthorizationTest extends TestBase {
         app.registrationPage().fillEmailField(email);
         app.registrationPage().acceptTermsCheckbox();
         app.registrationPage().clickSignUpButton();
-        assertTrue(app.registrationPage().userAlreadyExistMessageDisplayed());
+        assertTrue(app.registrationPage().errorIsDisplayed());
 
     }
 

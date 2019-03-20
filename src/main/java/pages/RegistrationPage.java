@@ -92,6 +92,7 @@ public class RegistrationPage extends HelperBase {
         waitTillElementIsVisible(By.cssSelector("label.ai-checkbox-group__label"));
     }
 
+
     public void submitTheForm() {
         submit(submitButtonLocator);
     }
@@ -133,7 +134,7 @@ public class RegistrationPage extends HelperBase {
         }
     }
 
-    public boolean userAlreadyExistMessageDisplayed() {
+    public boolean errorIsDisplayed() {
         return elementIsPresent(By.cssSelector("div.ai-input-group.valid.error"));
     }
 
