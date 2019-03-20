@@ -18,8 +18,9 @@ public class TempMailPage extends HelperBase {
     private By emailResetLinkLocator = By.linkText("reset link");
     private By emailAddressLocator = By.id("email");
 
-    public void openTempMailPage() {
+    public void openTempMailPage() throws InterruptedException {
         open(tempMailUrl);
+        Thread.sleep(2000);
     }
 
     public String tempMailEmail() {
@@ -28,7 +29,7 @@ public class TempMailPage extends HelperBase {
 
     public boolean tempMailHasEmail() {
         driver.navigate().refresh();
-        return isElementPresent(emailMessageLocator);
+        return elementIsPresent(emailMessageLocator);
     }
 
     public void emailLinkClick() {

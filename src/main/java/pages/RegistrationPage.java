@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static appmanager.ApplicationManager.baseUrl;
-import static appmanager.ApplicationManager.signInUrl;
 
 public class RegistrationPage extends HelperBase {
 
@@ -14,7 +13,7 @@ public class RegistrationPage extends HelperBase {
     }
 
     private String password = "^(?=.*[a-Z])(?=.*1";
-    private String newPassword = "^(?=.*[a-Z])(?=.*1" + "new";
+    private String newPassword = "^(?=.*[a-Z])(?=.*1-NEW";
 
     private By acceptCookieButtonLocator = By.cssSelector("div.cookies-disclaimer__btn-wrapper");
     private By registerButtonLocator = By.xpath("//div[@class='auth-btn-wrapper']/a[2]");
@@ -22,10 +21,7 @@ public class RegistrationPage extends HelperBase {
     private By lastNameLocator = By.name("last_name");
     private By emailLocator = By.name("email");
     private By termsAcceptLocator = By.xpath("//*[@for='i-accept']");
-    private By signUpButtonLocator = By.xpath("//button[@type='submit']");
-    private By remindButtonLocator = By.xpath("//button[@type='submit']");
     private By submitButtonLocator = By.xpath("//button[@type='submit']");
-    private By loginButtonLocator = By.xpath("//button[@type='submit']");
     private By passwordLocator = By.name("password");
     private By passwordConfirmLocator = By.name("password_confirm");
     private By forgotPasswordLocator = By.className("forgot-password");
@@ -59,6 +55,10 @@ public class RegistrationPage extends HelperBase {
         type(lastNameLocator, "Lastname");
     }
 
+    public void clickOnEmailField() {
+        click(emailLocator);
+    }
+
     public void fillEmailField(String email) {
         type(emailLocator, email);
     }
@@ -68,7 +68,7 @@ public class RegistrationPage extends HelperBase {
     }
 
     public void clickSignUpButton() {
-        click(signUpButtonLocator);
+        click(submitButtonLocator);
     }
 
     public boolean awesomeTextIsDisplayed() {
@@ -81,7 +81,6 @@ public class RegistrationPage extends HelperBase {
         type(passwordLocator, password);
         type(passwordConfirmLocator, password);
         click(submitButtonLocator);
-        open(signInUrl);
     }
 
     public void fillNewPasswordAndConfirm() {
@@ -89,13 +88,12 @@ public class RegistrationPage extends HelperBase {
         switchToNewTab();
         type(passwordLocator, newPassword);
         type(passwordConfirmLocator, newPassword);
-        click(submitButtonLocator);
-        open(signInUrl);
+        submit(submitButtonLocator);
+        waitTillElementIsVisible(By.cssSelector("label.ai-checkbox-group__label"));
     }
 
-    public void fillPasswordAndSignIn() {
-        type(passwordLocator, password);
-        click(submitButtonLocator);
+    public void submitTheForm() {
+        submit(submitButtonLocator);
     }
 
     public void fillInvalidPassword() {
@@ -103,53 +101,40 @@ public class RegistrationPage extends HelperBase {
     }
 
     public void clickLoginButton() {
-        click(loginButtonLocator);
+        click(submitButtonLocator);
     }
 
-    public void login(String email) {
-        type(emailLocator, email);
+    public void fillPasswordField() {
         type(passwordLocator, password);
-        click(loginButtonLocator);
     }
 
-    public void loginWithNewPassword(String email) {
-        type(emailLocator, email);
+    public void fillNewPasswordField() {
         type(passwordLocator, newPassword);
-        click(loginButtonLocator);
     }
 
     public void clickOnForgotPassword() {
         click(forgotPasswordLocator);
     }
 
-    public void typeEmailAndClickResetButton(String email) {
-        type(emailLocator, email);
-        click(remindButtonLocator);
-    }
-
-    public boolean passwordResetTextIsDisplayed() {
-        return textIsDisplayed(passwordResetTextLocator, "Password reset");
-    }
-
-    public void scrollToSignUpButton(){
-        scrollTillElementIsVisible(signUpButtonLocator);
+    public void scrollToSignUpButton() {
+        scrollTillElementIsVisible(submitButtonLocator);
     }
 
     public boolean signUpButtonIsDisabled() {
-        return isClickable(signUpButtonLocator);
+        return isClickable(submitButtonLocator);
     }
 
     public boolean loginFormShowsErrors() {
         try {
-            elementHasAttribute(loginButtonLocator, "ng-disabled", "form.$invalid");
+            elementHasAttribute(submitButtonLocator, "ng-disabled", "form.$invalid");
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public String userAlreadyExistMessageDisplayed(){
-        return driver.findElement(By.tagName("body")).getText();
+    public boolean userAlreadyExistMessageDisplayed() {
+        return elementIsPresent(By.cssSelector("div.ai-input-group.valid.error"));
     }
 
 }

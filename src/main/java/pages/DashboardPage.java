@@ -12,25 +12,29 @@ public class DashboardPage extends HelperBase {
 
     private By userInfoLocator = By.xpath("//div[@class='header-part__user-info']/button");
     private By personalInfoLocator = By.className("personal-information__title");
-    private By logoutButtonLocator = By.xpath("//ul[@class='personal-information__list']/li[2]");
+    private By logoutButtonLocator = By.xpath("//ul[@class='personal-information__list']/li[2]/span");
     private By questionnairePopupLocator = By.className("questionnaire-popup__container");
 
     public boolean questionnairePopupIsDisplayed() {
-        return isElementPresent(questionnairePopupLocator);
+        return elementIsPresent(questionnairePopupLocator);
     }
 
+//    public void refreshPage(){
+//        driver.navigate().refresh();
+//    }
+
     public void clickOnUserInfoButton() {
-        driver.navigate().refresh();
         click(userInfoLocator);
         waitToBePresent(personalInfoLocator);
     }
 
     public boolean personalInfoIsDisplayed() {
-        return isElementPresent(personalInfoLocator);
+        return elementIsPresent(personalInfoLocator);
     }
 
     public void clickOnLogoutButton() {
         click(logoutButtonLocator);
     }
+
 
 }

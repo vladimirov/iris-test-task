@@ -27,11 +27,22 @@ public class HelperBase {
     protected void click(By locator) {
         logger.info("CLICK ON ELEMENT: " + locator);
         try {
-            element = wait.until(presenceOfElementLocated(locator));
+            element = wait.until(visibilityOfElementLocated(locator));
             element.click();
         } catch (StaleElementReferenceException ignored) {
-            element = wait.until(presenceOfElementLocated(locator));
+            element = wait.until(visibilityOfElementLocated(locator));
             element.click();
+        }
+    }
+
+    protected void submit(By locator) {
+        logger.info("SUBMIT ELEMENT: " + locator);
+        try {
+            element = wait.until(visibilityOfElementLocated(locator));
+            element.submit();
+        } catch (StaleElementReferenceException ignored) {
+            element = wait.until(visibilityOfElementLocated(locator));
+            element.submit();
         }
     }
 
@@ -51,8 +62,8 @@ public class HelperBase {
     protected void waitToBePresent(By locator) {
         try {
             logger.info("ELEMENT HAS BEEN FOUND: " + locator);
-            element = wait.until(visibilityOfElementLocated(locator));
-        } catch (NullPointerException ignored) {
+            element = wait.until(presenceOfElementLocated(locator));
+        } catch (StaleElementReferenceException ignored) {
             logger.info("ELEMENT HAS BEEN FOUND: " + locator);
             element = wait.until(presenceOfElementLocated(locator));
         }
@@ -73,7 +84,7 @@ public class HelperBase {
         try {
             logger.info("ELEMENT IS VISIBLE: " + locator);
             element = wait.until(visibilityOfElementLocated(locator));
-        } catch (TimeoutException e) {
+        } catch (StaleElementReferenceException e) {
             logger.info("ELEMENT IS VISIBLE: " + locator);
             element = wait.until(visibilityOfElementLocated(locator));
         }
@@ -95,9 +106,16 @@ public class HelperBase {
         }
     }
 
-    protected boolean isElementPresent(By locator) {
+    protected boolean elementIsPresent(By locator) {
         logger.info("TRYING TO FOUND ELEMENT: " + locator);
         element = wait.until(presenceOfElementLocated(locator));
+        logger.info("ELEMENT HAS BEEN FOUND: " + locator);
+        return true;
+    }
+
+    protected boolean elementIsVisible(By locator) {
+        logger.info("TRYING TO FOUND ELEMENT: " + locator);
+        element = wait.until(visibilityOfElementLocated(locator));
         logger.info("ELEMENT HAS BEEN FOUND: " + locator);
         return true;
     }
@@ -118,6 +136,8 @@ public class HelperBase {
         return element.getAttribute(attribute).equals(value);
     }
 
+
+
     protected String getElementText(By locator) {
         logger.info("WAIT ELEMENT TO BE PRESENT: " + locator);
         element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -126,7 +146,7 @@ public class HelperBase {
 
     protected void scrollTillElementIsVisible(By locator) {
         logger.info("SCROLL TILL ELEMENT IS VISIBLE: " + locator);
-        element = wait.until(presenceOfElementLocated(locator));
+        element = wait.until(visibilityOfElementLocated(locator));
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
@@ -156,6 +176,12 @@ public class HelperBase {
     protected void open(String url) {
         logger.info("OPEN URL: " + url);
         driver.get(url);
+    }
+
+    public boolean isTextOnPagePresent(String text) {
+        WebElement body = driver.findElement(By.tagName("body"));
+        String bodyText = body.getText();
+        return bodyText.contains(text);
     }
 
 }

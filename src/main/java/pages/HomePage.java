@@ -24,7 +24,7 @@ public class HomePage extends HelperBase {
     }
 
     public boolean signInButtonIsDisplayed() {
-        return isElementPresent(signInButtonLocator);
+        return elementIsPresent(signInButtonLocator);
     }
 
 }

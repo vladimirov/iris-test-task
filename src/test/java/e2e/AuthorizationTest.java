@@ -11,7 +11,7 @@ public class AuthorizationTest extends TestBase {
     private String email;
 
     @Test(priority = 1)
-    public void successfulRegistration() {
+    public void successfulRegistration() throws InterruptedException {
         app.tempMailPage().openTempMailPage();
         email = app.tempMailPage().tempMailEmail();
         app.homePage().openHomePage();
@@ -27,19 +27,23 @@ public class AuthorizationTest extends TestBase {
         assertTrue(app.tempMailPage().tempMailHasEmail());
         app.tempMailPage().emailLinkClick();
         app.registrationPage().fillPasswordAndConfirm();
+        app.registrationPage().openSignInPage();
         app.registrationPage().fillEmailField(email);
-        app.registrationPage().fillPasswordAndSignIn();
+        app.registrationPage().fillPasswordField();
+        app.registrationPage().submitTheForm();
         assertTrue(app.dashboardPage().questionnairePopupIsDisplayed());
+        app.registrationPage().reloadPage();
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
         app.dashboardPage().clickOnLogoutButton();
     }
 
     @Test(priority = 2, dependsOnMethods = {"successfulRegistration"})
-    public void successfulLoginAndLogout() {
-        app.homePage().openHomePage();
-        app.homePage().clickOnLoginButton();
-        app.registrationPage().login(email);
+    public void successfulLoginAndLogout() throws InterruptedException {
+        app.registrationPage().openSignInPage();
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().fillPasswordField();
+        app.registrationPage().submitTheForm();
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
         app.dashboardPage().clickOnLogoutButton();
@@ -47,30 +51,41 @@ public class AuthorizationTest extends TestBase {
     }
 
     @Test(priority = 3, dependsOnMethods = {"successfulLoginAndLogout"})
-    public void resetPasswordAndLogin() {
+    public void resetPassword() throws InterruptedException {
         app.homePage().openHomePage();
         app.homePage().clickOnLoginButton();
         app.registrationPage().clickOnForgotPassword();
-        app.registrationPage().typeEmailAndClickResetButton(email);
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().submitTheForm();
         app.tempMailPage().openTempMailPage();
         app.tempMailPage().resetPasswordLinkClick();
         app.registrationPage().fillNewPasswordAndConfirm();
-        app.registrationPage().loginWithNewPassword(email);
+
+    }
+
+    @Test(priority = 4, dependsOnMethods = {"resetPassword"})
+    public void loginWithNewPassword() throws InterruptedException {
+        app.registrationPage().openSignInPage();
+        app.registrationPage().clickOnEmailField();
+        app.registrationPage().fillEmailField(email);
+        app.registrationPage().fillNewPasswordField();
+        app.registrationPage().submitTheForm();
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
         app.dashboardPage().clickOnLogoutButton();
+
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void registerEmailThatAlreadyUsed() {
         app.registrationPage().openRegistrationPage();
+        app.registrationPage().clickOnEmailField();
         app.registrationPage().fillFirstnameField();
         app.registrationPage().fillLastnameField();
         app.registrationPage().fillEmailField(email);
         app.registrationPage().acceptTermsCheckbox();
         app.registrationPage().clickSignUpButton();
-
-        assertEquals(app.registrationPage().userAlreadyExistMessageDisplayed(), "User already exist!");
+        assertTrue(app.registrationPage().userAlreadyExistMessageDisplayed());
 
     }
 

@@ -11,7 +11,7 @@ public class LoginTest extends TestBase {
     private String email;
 
     @BeforeTest
-    public void registerNewUser() {
+    public void registerNewUser() throws InterruptedException {
         app.tempMailPage().openTempMailPage();
         email = app.tempMailPage().tempMailEmail();
         app.homePage().openHomePage();
@@ -28,23 +28,26 @@ public class LoginTest extends TestBase {
         app.tempMailPage().emailLinkClick();
         app.registrationPage().fillPasswordAndConfirm();
         app.registrationPage().fillEmailField(email);
-        app.registrationPage().fillPasswordAndSignIn();
+        app.registrationPage().fillPasswordField();
+        app.registrationPage().submitTheForm();
         assertTrue(app.dashboardPage().questionnairePopupIsDisplayed());
+        app.registrationPage().reloadPage();
         app.dashboardPage().clickOnUserInfoButton();
         assertTrue(app.dashboardPage().personalInfoIsDisplayed());
         app.dashboardPage().clickOnLogoutButton();
     }
 
     @Test
-    public void inputInvalidUsernameValidPassword() {
+    public void inputInvalidUsernameValidPassword() throws InterruptedException {
         app.registrationPage().openSignInPage();
         app.registrationPage().fillEmailField(email + 1);
-        app.registrationPage().fillPasswordAndSignIn();
+        app.registrationPage().fillPasswordField();
+        app.registrationPage().submitTheForm();
         assertTrue(app.registrationPage().loginFormShowsErrors());
     }
 
     @Test
-    public void inputValidUsernameInvalidPassword() {
+    public void inputValidUsernameInvalidPassword() throws InterruptedException {
         app.registrationPage().openSignInPage();
         app.registrationPage().fillEmailField(email);
         app.registrationPage().fillInvalidPassword();
